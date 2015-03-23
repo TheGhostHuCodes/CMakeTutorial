@@ -1,8 +1,11 @@
 /* Hello World program */
-#include <stdio.h>
+#include <iostream>
 
-int main()
+int main(int argc, char** argv)
 {
-    printf( "Hello World\n" );
+    auto helloString = [](){
+        return "HelloWorld!\n";
+    };
+    std::cout << helloString();
     return 0;
 }
