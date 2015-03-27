@@ -13,7 +13,7 @@ int equalityTest(const T1 testValue, const T2 expectedValue,
                  const char* testName, const char* expectedName,
                  const char* fileName, const int lineNumber);
 
-int main(int argc, char** argv) {
+int main(int, char**) {
     int result = 0;
 
     ToDo list;
@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     list.addTask("compile");
     list.addTask("test");
 
-    result |= EXPECT_EQUAL(list.size(), 3);
+    result |= EXPECT_EQUAL(list.size(), size_t(3));
     result |= EXPECT_EQUAL(list.getTask(0), "write code");
     result |= EXPECT_EQUAL(list.getTask(1), "compile");
     result |= EXPECT_EQUAL(list.getTask(2), "test");
