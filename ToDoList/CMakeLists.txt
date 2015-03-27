@@ -14,7 +14,14 @@ IF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
 ELSEIF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     SET(WARNINGS "/W4 /WX /EHsc")
 ENDIF()
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${WARNINGS}")
+IF(NOT CONFIGURED_ONCE)
+    SET(CMAKE_CXX_FLAGS "${WARNINGS}"
+        CACHE STRING "Flags used by the compiler during all build types."
+        FORCE)
+ENDIF(NOT CONFIGURED_ONCE)
 
 ADD_EXECUTABLE(ToDo Main.cpp ToDo.cpp)
 ADD_TEST(ToDoTest ToDo)
+
+SET(CONFIGURED_ONCE TRUE CACHE INTERNAL
+        "A flag showing that CMake has configured at least once.")
