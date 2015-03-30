@@ -1,0 +1,3 @@
+[submodule "ToDoList/External/gmock"]
+	path = ToDoList/External/gmock
+	url = git@github.com:TheGhostHuCodes/gmock.git
