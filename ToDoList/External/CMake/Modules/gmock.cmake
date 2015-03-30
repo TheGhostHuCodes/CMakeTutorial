@@ -12,4 +12,14 @@ SET(SOURCE_FILES ${GOOGLEMOCK_ROOT}/fused-src/gmock-gtest-all.cc
 ADD_LIBRARY(gmock STATIC ${INCLUDE_FILES} ${SOURCE_FILES})
 SET_PROPERTY(TARGET gmock APPEND_STRING PROPERTY COMPILE_FLAGS "-w")
 
-SET(GMOCK_INCLUDE_DIRS ${GOOGLEMOCK_ROOT}/fused-src PARENT_SCOPE)
+# ADD_GMOCK_TEST(<target> <sources>...)
+#
+# Adds a googlemock based test executable, <target>, built from <sources> and
+# adds the test so that CTest will run it. Both the executable and the test
+# will be named <target>.
+FUNCTION(ADD_GMOCK_TEST TARGET)
+    ADD_EXECUTABLE(${TARGET} ${ARGN})
+    TARGET_LINK_LIBRARIES(${TARGET} gmock)
+    INCLUDE_DIRECTORIES(${GMOCK_INCLUDE_DIRS})
+    ADD_TEST(${TARGET} ${TARGET})
+ENDFUNCTION(ADD_GMOCK_TEST)

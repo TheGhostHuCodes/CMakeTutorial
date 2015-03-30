@@ -1,11 +1,14 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8 FATAL_ERROR)
 PROJECT("To Do List")
 
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/External/CMake/Modules)
+
 # Allow unit tests to be disabled via command line or the CMake GUI.
 OPTION(BUILD_UNIT_TESTS "Build unit tests." ON)
 # Enable the CMake built in CTest system if unit tests are enabled.
 IF(BUILD_UNIT_TESTS)
     ENABLE_TESTING()
+    INCLUDE(gmock)
 ENDIF(BUILD_UNIT_TESTS)
 
 IF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
@@ -21,7 +24,6 @@ IF(NOT CONFIGURED_ONCE)
 ENDIF(NOT CONFIGURED_ONCE)
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
-INCLUDE(External/CMakeLists.txt)
 ADD_SUBDIRECTORY(ToDoCore)
 
 ADD_EXECUTABLE(ToDo Main.cpp)
