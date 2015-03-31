@@ -1,6 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8 FATAL_ERROR)
 PROJECT("To Do List")
 
+# Look in here for googlemock.
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/External/CMake/Modules)
 
 # Allow unit tests to be disabled via command line or the CMake GUI.
@@ -29,7 +30,6 @@ ADD_SUBDIRECTORY(ToDoCore)
 ADD_EXECUTABLE(ToDo Main.cpp)
 TARGET_LINK_LIBRARIES(ToDo ToDoCore)
 
-ADD_TEST(ToDoTest ToDo)
 
 SET(CONFIGURED_ONCE TRUE CACHE INTERNAL
         "A flag showing that CMake has configured at least once.")
