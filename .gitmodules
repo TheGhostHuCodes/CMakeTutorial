@@ -1,3 +1,6 @@
 [submodule "ToDoList/External/gmock"]
 	path = ToDoList/External/gmock
 	url = git@github.com:TheGhostHuCodes/gmock.git
+[submodule "CMakeEnvironment/External/gmock"]
+	path = CMakeEnvironment/External/gmock
+	url = git@github.com:TheGhostHuCodes/gmock.git
