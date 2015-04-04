@@ -1,6 +1,3 @@
 #include "World.hpp"
 
-const char* const WorldString() {
-    return "World!\n";
-}
-
+const char* const WorldString() { return "World!\n"; }
