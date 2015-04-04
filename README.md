@@ -8,3 +8,6 @@ hang of CMake.
   CMake](http://www.gamedev.net/page/resources/_/technical/general-programming/cross-platform-test-driven-development-environment-using-cmake-part-1-r2986).
 - ToDoList is from [John Lamp's CMake
   Tutorial](https://www.johnlamp.net/cmake-tutorial-1-getting-started.html).
+
+These projects are not exact copies of the tutorials. Instead I have set up
+projects using the best parts of each of the tutorials.
